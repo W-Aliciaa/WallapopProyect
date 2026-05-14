@@ -1,18 +1,18 @@
-import { createTweetController } from "./create-tweet/create-tweet-controller.js";
-import { notificationsController } from "./notifications/notification-controller.js";
-import { sessionController } from "./session/session-controller.js";
-import { spinnerController } from "./spinner/spinner-controller.js";
+//import { createTweetController } from "./create-tweet/create-tweet-controller.js";
+//import { notificationsController } from "./notifications/notification-controller.js";
+//import { sessionController } from "./session/session-controller.js";
+//import { spinnerController } from "./spinner/spinner-controller.js";
 import { tweetListController } from "./tweet-list/tweet-list-controller.js";
 
 // el orquestador ejecutará el/los controlador/controladores
 
-const tweetsContainer = document.querySelector('.tweets-container');
-const spinnerContainer = document.querySelector('.spinner-container');
-const notificationsContainer = document.querySelector('.notifications-container');
-const createTweetContainer = document.querySelector('.create-tweet-container');
-const sessionContainer = document.querySelector('.session-container');
+//const tweetsContainer = document.querySelector('.tweets-container');
+//const spinnerContainer = document.querySelector('.spinner-container');
+//const notificationsContainer = document.querySelector('.notifications-container');
+//const createTweetContainer = document.querySelector('.create-tweet-container');
+//const sessionContainer = document.querySelector('.session-container');
 
-
+/*
 const { showSpinner, hideSpinner } = spinnerController(spinnerContainer)
 tweetsContainer.addEventListener("loadTweetsStarted", showSpinner)
 tweetsContainer.addEventListener("loadTweetsFinished", hideSpinner)
@@ -37,5 +37,10 @@ createTweetContainer.addEventListener('tweetCreated', () => {
 })
 
 tweetListController(tweetsContainer);
-createTweetController(createTweetContainer);
-sessionController(sessionContainer)
+//createTweetController(createTweetContainer);
+//sessionController(sessionContainer)
+*/
+
+const container = document.querySelector('.tweets-container');
+
+tweetListController(container)
