@@ -1,0 +1,20 @@
+    .notifications-container {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .notification {
+      border: solid 2px lightgrey;
+      border-radius: 10px;
+      padding: 0.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .notification.success {
+      background-color: #00912b;
+    }
+    .notification.error {
+      background-color: #af0000;
+    }

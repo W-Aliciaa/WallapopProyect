@@ -4,7 +4,7 @@ export const buildTweet = (tweet) => {
 
   const newTweet = document.createElement('a');
   newTweet.classList.add('tweet-link')
-  newTweet.setAttribute('href', `tweet-detail.html?id=${tweet.id}`)
+  //newTweet.setAttribute('href', `tweet-detail.html?id=${tweet.id}`)
 
   newTweet.innerHTML = `
     <div class="tweet">
