@@ -1,6 +1,6 @@
 //ORQUESTADOR
 
-//import { createTweetController } from "./create-tweet/create-tweet-controller.js";
+import { createTweetController } from "./create-tweet/create-tweet-controller.js";
 import { notificationsController } from "./notifications/notification-controller.js";
 //import { sessionController } from "./session/session-controller.js";
 import { spinnerController } from "./spinner/spinner-controller.js";
@@ -11,7 +11,7 @@ import { tweetListController } from "./tweet-list/tweet-list-controller.js";
 const tweetsContainer = document.querySelector('.tweets-container');
 const spinnerContainer = document.querySelector('.spinner-container');
 const notificationsContainer = document.querySelector('.notifications-container');
-//const createTweetContainer = document.querySelector('.create-tweet-container');
+const createTweetContainer = document.querySelector('.create-tweet-container');
 //const sessionContainer = document.querySelector('.session-container');
 
 
@@ -31,16 +31,16 @@ tweetsContainer.addEventListener("loadTweetsFailed", (event) => {
     showNotification("tercera notificación", "success")
   }, 3500);
 })
-/*
+
 createTweetContainer.addEventListener('tweetCreated', () => {
   // window.location.reload();
   tweetListController(tweetsContainer);
   
 })
-*/
+
 tweetListController(tweetsContainer);
 spinnerController(spinnerContainer);
-//createTweetController(createTweetContainer);
+createTweetController(createTweetContainer);
 //sessionController(sessionContainer)
 
 
