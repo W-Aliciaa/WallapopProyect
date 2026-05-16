@@ -1,17 +1,16 @@
-export const createTweet = async (content) => {
-
-  const url = 'http://localhost:8000/api/tweets2'
+export const getLoggedUserInfo = async () => {
+  const url = 'http://localhost:8000/auth/me';
   const token = localStorage.getItem('token');
 
   const response = await fetch(url, {
-    method: 'POST',
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `bearer ${token}`,
-    },
-    body: JSON.stringify({
-      content,
-      likes: 0
-    })
+    }
   })
+
+  const data = await response.json();
+  
+  return data
 }

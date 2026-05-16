@@ -1,46 +1,31 @@
 //ORQUESTADOR
 
-import { createTweetController } from "./create-tweet/create-tweet-controller.js";
 import { notificationsController } from "./notifications/notification-controller.js";
-//import { sessionController } from "./session/session-controller.js";
+import { sessionController } from "./session/session-controller.js";
 import { spinnerController } from "./spinner/spinner-controller.js";
-import { tweetListController } from "./tweet-list/tweet-list-controller.js";
+import { productListController } from "./product-list/product-list-controller.js";
 
 // el orquestador ejecutará el/los controlador/controladores
 
-const tweetsContainer = document.querySelector('.tweets-container');
+const productsContainer = document.querySelector('.products-container');
 const spinnerContainer = document.querySelector('.spinner-container');
 const notificationsContainer = document.querySelector('.notifications-container');
-const createTweetContainer = document.querySelector('.create-tweet-container');
-//const sessionContainer = document.querySelector('.session-container');
+const sessionContainer = document.querySelector('.session-container');
 
 
 const { showSpinner, hideSpinner } = spinnerController(spinnerContainer)
-tweetsContainer.addEventListener("loadTweetsStarted", showSpinner)
-tweetsContainer.addEventListener("loadTweetsFinished", hideSpinner)
+productsContainer.addEventListener("loadProductsStarted", showSpinner)
+productsContainer.addEventListener("loadProductsFinished", hideSpinner)
 
 const { showNotification } = notificationsController(notificationsContainer)
 
-tweetsContainer.addEventListener("loadTweetsFailed", (event) => {
+productsContainer.addEventListener("loadProductsFailed", (event) => {
   showNotification(event.detail.message, event.detail.type)
-
-  setTimeout(() => {
-    showNotification("segunda notificación", "success")
-  }, 1500);
-  setTimeout(() => {
-    showNotification("tercera notificación", "success")
-  }, 3500);
 })
 
-createTweetContainer.addEventListener('tweetCreated', () => {
-  // window.location.reload();
-  tweetListController(tweetsContainer);
-  
-})
 
-tweetListController(tweetsContainer);
+productListController(productsContainer);
 spinnerController(spinnerContainer);
-createTweetController(createTweetContainer);
-//sessionController(sessionContainer)
+sessionController(sessionContainer)
 
 
