@@ -10,6 +10,9 @@ export const loginController = (loginForm) => {
     const password = loginData.get('password')
   
     try {
+
+      loginForm.dispatchEvent(new CustomEvent('loginStarted'));
+
       const token = await loginUser(email, password)
       const userSignedEvent = new CustomEvent("userSigned", {
           detail: {
@@ -20,7 +23,9 @@ export const loginController = (loginForm) => {
       loginForm.dispatchEvent(userSignedEvent);
 
       localStorage.setItem('token', token)
-      window.location = '/'
+      setTimeout(() => {
+        window.location = '/';
+      }, 1500);
     } catch (error) {
         const userNotSignedEvent = new CustomEvent("userNotSigned", {
             detail: {
@@ -29,6 +34,8 @@ export const loginController = (loginForm) => {
             }
         })
         loginForm.dispatchEvent(userNotSignedEvent);
-      }
+    } finally {
+        loginForm.dispatchEvent(new CustomEvent('loginFinished'));
+    }
   })
 }

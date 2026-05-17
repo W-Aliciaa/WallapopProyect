@@ -39,7 +39,7 @@ export const createProductController = (formContainer) => {
       formContainer.dispatchEvent(successEvent);
 
     } catch (error) {
-      // ESTADO: Error
+      // Error
       const errorEvent = new CustomEvent('productCreationFailed', {
         detail: {
           message: error.message || 'Error al crear el anuncio',
